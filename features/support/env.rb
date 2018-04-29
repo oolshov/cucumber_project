@@ -10,25 +10,30 @@ def initialize
   start_browser
 end
 
-Before do |scenario|
-  p "This is before action because of tag @hello" if scenario.match_tags? "@hello"
-
-  skip_this_scenario if scenario.match_tags? "@skip"
-  @test_started = Time.now
+Before('@hello') do |scenario|
+  p "Test started at: #{@test_started = Time.now}"
+  p "This is before ation because of tag @hello"
 end
 
-#After do |scenario|
-#  test_finished = Time.now
-#  binding.pry
-#  seconds = test_finished - @test_started
-#  minutes = (seconds/60).to_i
-#  seconds-=minutes*60
-#  test_time =  "Scenario took: #{minutes} minute(s) and #{seconds.round(2)} seconds(s) to finish"
-#  p test_time
-#end
+Before('@skip') do |scenario|
+  p "Test skipped at: #{@test_started = Time.now}"
+  p "This scenario won't be run as it's tagged with @skip tag"
+  skip_this_scenario if scenario.match_tags? "@skip"
+end
 
-#def test_statistic
-#end
+After do |scenario|
+  test_statistic 
+end
+
+def test_statistic
+  test_finished = Time.now
+#  binding.pry
+  total_seconds = (test_finished - @test_started).to_i
+# floor and modulus allow to split out minutes and seconds to get more precise output
+  minutes = (total_seconds / 60).floor
+  seconds = total_seconds % 60
+  p overal_time = "Scenario took: #{minutes} minute(s) and #{seconds} second(s) to finish"
+end
 
 def start_browser
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome

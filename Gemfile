@@ -9,4 +9,6 @@ gem 'json', '2.1.0' # there was 1.7.7 version before
 gem 'syntax'
 gem 'minitest'
 gem 'pry', '0.11.1'
+gem 'rb-readline'
 gem 'rspec-expectations'
+gem 'net-http-persistent'
