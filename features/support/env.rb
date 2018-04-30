@@ -21,7 +21,7 @@ Before('@skip') do |scenario|
   skip_this_scenario if scenario.match_tags? "@skip"
 end
 
-After do |scenario|
+After('@hello or @skip') do |scenario|
   test_statistic 
 end
 
