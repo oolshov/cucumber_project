@@ -21,13 +21,12 @@ Before('@skip') do |scenario|
   skip_this_scenario if scenario.match_tags? "@skip"
 end
 
-After('@hello or @skip') do |scenario|
+After('@hello or @skip or @failed') do |scenario|
   if scenario.failed?
 	  p exception_msg = "[Cucumber Project: ] #{scenario.exception.message}"
   else
     test_statistic
   end
-
 end
 
 def test_statistic
