@@ -22,7 +22,12 @@ Before('@skip') do |scenario|
 end
 
 After('@hello or @skip') do |scenario|
-  test_statistic 
+  if scenario.failed?
+	  p exception_msg = "[Cucumber Project: ] #{scenario.exception.message}"
+  else
+    test_statistic
+  end
+
 end
 
 def test_statistic
@@ -36,7 +41,7 @@ def test_statistic
 end
 
 def start_browser
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {"args" => %w[--ignore-certificate-errors --start-maximized] })
   capabilities.platform = :WINDOWS
   Capybara.default_driver = :selenium
 
