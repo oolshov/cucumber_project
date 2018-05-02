@@ -10,15 +10,15 @@ def initialize
   start_browser
 end
 
-Before('@hello') do |scenario|
+Before('@hello or @skip') do |scenario|
   p "Test started at: #{@test_started = Time.now}"
-  p "This is before ation because of tag @hello"
-end
 
-Before('@skip') do |scenario|
-  p "Test skipped at: #{@test_started = Time.now}"
-  p "This scenario won't be run as it's tagged with @skip tag"
-  skip_this_scenario if scenario.match_tags? "@skip"
+    if scenario.match_tags? "@hello"
+      p "This is before ation because of tag @hello"
+    elsif scenario.match_tags? "@skip"
+      p "This scenario won't be run as it's tagged with @skip tag"
+      skip_this_scenario
+    end
 end
 
 After('@hello or @skip or @failed') do |scenario|
