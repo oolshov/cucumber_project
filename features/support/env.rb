@@ -40,7 +40,7 @@ def test_statistic
 end
 
 def start_browser
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {"args" => %w[--ignore-certificate-errors --start-maximized] })
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {"args" => %w[--start-maximized] })
   capabilities.platform = :WINDOWS
   Capybara.default_driver = :selenium
 
