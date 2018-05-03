@@ -20,7 +20,6 @@ end
 # Scenario 3
 
 Given("I click on the first link in the results set") do
-  binding.pry
   page.first('.r a').click
   expect(page.text).to include "What should i know?"
 end
