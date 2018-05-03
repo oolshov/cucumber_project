@@ -7,15 +7,11 @@ require 'selenium/webdriver/remote/http/persistent'
 require 'pry'
 require 'capybara/cucumber'
 
-#def initialize
-#  capybara_driver_setup
-#end
-
-
   Before do |scenario|
     capybara_driver_setup
 
-    p "Test started at: #{@test_started = Time.now}"
+    @test_started = Time.now
+    p "Test started at: #{@test_started}"
 
       if scenario.match_tags? "@hello"
         p "This is before ation because of tag @hello"
@@ -48,8 +44,6 @@ require 'capybara/cucumber'
     capabilities.platform = :WINDOWS
     Capybara.default_driver = :selenium
 
-    #Capybara.server_host = ENV['LOCAL_IP']
-    #Capybara.server_port = '3110'
     Capybara.register_driver :selenium do |app|
       Capybara::Selenium::Driver.new(app,
         :browser => :remote,
