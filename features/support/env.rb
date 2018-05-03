@@ -21,12 +21,8 @@ require 'capybara/cucumber'
       end
   end
 
-  After('@hello or @skip or @failed') do |scenario|
-    if scenario.failed?
-      p exception_msg = "[Cucumber Project: ] #{scenario.exception.message}"
-    else
+  After('@hello or @skip or @failed or @github') do |scenario|
       test_statistic
-    end
   end
 
 
