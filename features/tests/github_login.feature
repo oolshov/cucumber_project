@@ -1,5 +1,5 @@
 Feature: Github Login
-
+@github
 Scenario Outline: Login to Github with different accounts
   Given I launch "https://github.com/login"
   When I enter <username> and <password>
@@ -8,7 +8,6 @@ Scenario Outline: Login to Github with different accounts
 
   Examples:
     | username |   password   |
-    | test     |   password3  |
-    | test     |   password4  |
-    | test     |   password5  |
+    | okaruk     |   8ZfkqwWW>xMH  |
+
 

@@ -6,6 +6,9 @@ require 'selenium/webdriver/remote/http/curb'
 require 'selenium/webdriver/remote/http/persistent'
 require 'pry'
 require 'capybara/cucumber'
+require 'watir-webdriver/atoms'
+require 'page-object'
+require 'watir'
 
   Before do |scenario|
     capybara_driver_setup

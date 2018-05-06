@@ -14,7 +14,7 @@ Feature: Sample
     And I fill-in search with "My First Cucumber Script"
   Then I should see "Your First Cucumber Script"
 
-  @feature @failed
+  @feature @javascript
   Scenario: Sample scenario 3
   Given I launch "http://www.google.com"
   And I fill-in search with "guru99 cucumber"
