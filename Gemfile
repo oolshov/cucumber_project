@@ -13,5 +13,4 @@ gem 'pry', '0.11.1'
 gem 'rb-readline'
 gem 'rspec-expectations'
 gem 'net-http-persistent'
-gem "watir", "~> 6.1"
 gem 'site_prism', '~> 2.5'
