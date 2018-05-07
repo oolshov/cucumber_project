@@ -22,7 +22,7 @@ require 'site_prism'
       end
   end
 
-  After('@hello or @skip or @failed or @github') do |scenario|
+  After('@hello or @skip') do |scenario|
       test_statistic
   end
 
