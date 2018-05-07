@@ -1,6 +1,6 @@
 Feature: Api Sample Request
 
-  @feature
+  @feature @api
   Scenario: Sample Api Request
 
   Given I request jsonplaceholder with "/users"
