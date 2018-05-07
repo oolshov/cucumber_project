@@ -1,11 +1,8 @@
-require_relative "../pageObjects/google_page.rb"
+#require_relative "../pageObjects/google_page.rb"
 
 Given("I wait to debug") do
   binding.pry
 end
-
-browser = Selenium::WebDriver.for :chrome
-google_page = GooglePage.new(browser)
 
 # Scenario 2
 
@@ -15,7 +12,8 @@ end
 
 Given("I fill-in search with {string}") do |string|
   #find("#lst-ib").set string + "\n"
-  google_page.search_bar.set string
+  #google_page.search_bar.set string
+  GooglePages::GoogleMainPage.new.search_field.set string + "\n"
 end
 
 Then("I should see {string}") do |string|

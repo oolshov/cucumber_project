@@ -7,8 +7,8 @@ require 'selenium/webdriver/remote/http/persistent'
 require 'pry'
 require 'capybara/cucumber'
 require 'watir-webdriver/atoms'
-require 'page-object'
 require 'watir'
+require 'site_prism'
 
   Before do |scenario|
     capybara_driver_setup

@@ -1,1 +1,1 @@
-default: -r features/support -r features/step_definitions -r features/tests
+default: -r features/support -r features/step_definitions -r features/tests -r features/pages
