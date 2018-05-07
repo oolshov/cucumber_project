@@ -6,7 +6,6 @@ require 'selenium/webdriver/remote/http/curb'
 require 'selenium/webdriver/remote/http/persistent'
 require 'pry'
 require 'capybara/cucumber'
-require 'watir-webdriver/atoms'
 require 'watir'
 require 'site_prism'
 
