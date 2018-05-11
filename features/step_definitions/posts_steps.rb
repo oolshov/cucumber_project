@@ -2,7 +2,6 @@ Given(/^I request jsonplaceholder (.*)$/) do |resource|
     http = Net::HTTP.new("jsonplaceholder.typicode.com", "80")
     get_url = Net::HTTP::Get.new(resource)
     @response = http.request(get_url)
-    binding.pry
 end
 
 Given(/^I expect response to have id (.*)$/) do |id|

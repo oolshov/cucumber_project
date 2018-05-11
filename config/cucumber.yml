@@ -1,2 +1,2 @@
 default: -r features/support -r features/step_definitions -r features/tests -r features/pages
-api_tests: --tags @api_posts
+api_tests: --tags @api
