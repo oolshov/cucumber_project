@@ -15,3 +15,4 @@ Feature: Posts API
 
     Given I send post request jsonplaceholder /posts
     Then I expect to get 201 Created status
+    Then I request jsonplaceholder /posts
