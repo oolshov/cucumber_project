@@ -1,5 +1,3 @@
-#require_relative "../pageObjects/google_page.rb"
-
 Given("I wait to debug") do
   binding.pry
 end

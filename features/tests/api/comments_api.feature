@@ -1,6 +1,6 @@
 Feature: Comments API
 
-  @api_comments
+  @api
   Scenario: Getting all comments
 
     Given I request jsonplaceholder /comments
