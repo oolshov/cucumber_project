@@ -1,7 +1,7 @@
 Feature: Comments API
 
   @api
-  Scenario: Getting all comments
+  Scenario: Listing comments
 
     Given I request jsonplaceholder /comments
     Then I expect response to have postId 25
