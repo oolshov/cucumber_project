@@ -17,10 +17,14 @@ end
 Given(/^I send post request jsonplaceholder (.*)$/) do |resource|
   uri = URI.parse("http://jsonplaceholder.typicode.com#{resource}")
 
-  header = {'Content-Type': 'text/json'}
-  post = {new_post: {userId: 1,
-      title: "post created be post request 1",
-      body: "I suppose this post would be created 1"
+  header = {
+    'Content-Type': 'text/json'
+  }
+# Payload of POST request
+  post = {post: {
+      title: "This is a faked post created using POST request",
+      body: "This faked post won't be created, but status code tells as he did.",
+      userId: 1
    }
   }
 
@@ -34,6 +38,28 @@ end
 
 Then(/^I expect to get (.*) Created status$/) do |status_code|
   expect(@response.code).to eq(status_code)
+  binding.pry
+end
+
+Then(/^I send put request jsonplaceholder (.*)$/) do |resource|
+  uri = URI.parse("http://jsonplaceholder.typicode.com#{resource}")
+
+  header = {
+    'Content-Type': 'text/json'
+  }
+
+  post = {post: {
+      id: 101,
+      title: "This is a faked post UPDATED using POST request",
+      body: "This faked post won't be created, but status code tells as he did.",
+      userId: 1
+   }
+  }
+
+  http = Net::HTTP.new(uri.host, uri.port)
+  request = Net::HTTP::Put.new(uri.request_uri, header)
+  request.body = post.to_json
+  @response = http.request(request)
   binding.pry
 end
 

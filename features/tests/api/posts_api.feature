@@ -11,8 +11,10 @@ Feature: Posts API
 # Scenario 2
 
   @post_api
-  Scenario: Creating new post
+  Scenario: Creating/updating/deleting new post
 
     Given I send post request jsonplaceholder /posts
     Then I expect to get 201 Created status
-    Then I request jsonplaceholder /posts
+    Then I request jsonplaceholder /posts?id=101
+    Then I send put request jsonplaceholder /posts?id=101
+ #   Then I would like to delete this post
