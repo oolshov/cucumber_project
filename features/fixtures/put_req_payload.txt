@@ -1,0 +1,4 @@
+id: 101
+title: "This is a faked post UPDATED using POST request"
+body: "This faked post won't be created, but status code tells as he did.",
+userId: 1
