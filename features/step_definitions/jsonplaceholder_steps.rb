@@ -69,6 +69,5 @@ Given(/^I send PUT request to jsonplaceholder (.*)$/) do |resource|
   http = Net::HTTP.new(uri.host, uri.port)
   request = Net::HTTP::Put.new(uri.request_uri, header)
   request.body = payload.to_json
-  binding.pry
   @response = http.request(request)
 end
