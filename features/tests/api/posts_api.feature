@@ -6,15 +6,19 @@ Feature: Posts API
 
     Given I request jsonplaceholder /posts
     Then I expect response to have id 7
-    And Post with id 7 has title magnam facilis autem
 
 # Scenario 2
-
   @post_api
-  Scenario: Creating/updating/deleting new post
+  Scenario: Create new post
 
-    Given I send post request jsonplaceholder /posts
+    Given I send POST request /posts to jsonplaceholder with params:
+    |   title   |    body    |user_id|
+    | fake post | fake post  |   1   |
+
     Then I expect to get 201 Created status
-    Then I request jsonplaceholder /posts?id=101
-    Then I send put request jsonplaceholder /posts?id=101
- #   Then I would like to delete this post
+
+
+    Scenario: Update post
+    Given I send PUT request to jsonplaceholder /posts?id=101
+    Then I expect to get 404 Not Found status
+

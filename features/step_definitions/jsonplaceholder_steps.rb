@@ -35,3 +35,39 @@ end
 Then(/^I expect get only photos from album (\d+)$/) do |album_id|
   expect(@response.body).to have_content album_id
 end
+
+
+# POST request scenario
+Given(/^I expect response to have id (\d+)$/) do |id|
+  expect(@response.body).to have_content id
+end
+
+Given(/^I send POST request (.*) to jsonplaceholder with params:$/) do |resource, table|
+  uri = URI.parse("http://jsonplaceholder.typicode.com#{resource}")
+
+  http = Net::HTTP.new(uri.host, uri.port)
+  request = Net::HTTP::Post.new(uri.path, { "Content-Type" => "text/json" })
+  request.body = hash.to_json
+  @response = http.request(request)
+end
+
+Then(/^I expect to get (\d+) (.*) status$/) do |code, message|
+  expect(@response.code.to_i).to eq(code)
+  expect(@response.msg).to eq(message)
+end
+
+# PUT request scenario
+Given(/^I send PUT request to jsonplaceholder (.*)$/) do |resource|
+  uri = URI.parse("http://jsonplaceholder.typicode.com#{resource}")
+
+  payload = IO.readlines("features/fixtures/put_req_payload.txt") # return value is array
+
+  header = {
+    "Content-Type": "text/json"
+  }
+
+  http = Net::HTTP.new(uri.host, uri.port)
+  request = Net::HTTP::Put.new(uri.request_uri, header)
+  request.body = payload.to_json
+  @response = http.request(request)
+end
