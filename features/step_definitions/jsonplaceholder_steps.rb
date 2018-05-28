@@ -4,6 +4,8 @@ Given(/^I request jsonplaceholder (.*)$/) do |resource|
     get_url = Net::HTTP::Get.new(resource) # test for merge
     put "I guess the conflict should occur"
     @response = http.request(get_url) # try pr
+    # main commit for squash
+    # ffffff
 end
 
 # Users scenario
